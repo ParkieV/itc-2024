@@ -26,6 +26,7 @@ FROM base_with_req
 
 WORKDIR /src
 
+COPY .env .
 COPY backend/ .
 
 CMD ["python", "-m", "src.main"]
