@@ -28,4 +28,4 @@ WORKDIR /src
 
 COPY . .
 
-CMD ["python", "-m", "src.main"]
+CMD ["python", "-m", "backend.src.main"]
