@@ -24,9 +24,9 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
 
 FROM base_with_req
 
-WORKDIR /src
-
 COPY .env .
-COPY backend/ .
+COPY backend/ backend/
+
+WORKDIR /backend
 
 CMD ["python", "-m", "src.main"]
