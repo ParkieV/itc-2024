@@ -28,4 +28,4 @@ WORKDIR /src
 
 COPY . .
 
-CMD ["python", "-m", "app.main"]
+CMD ["python", "-m", "src.main"]
