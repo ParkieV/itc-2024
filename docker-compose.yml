@@ -1,0 +1,40 @@
+services:
+#  redis:
+#    container_name: redis_hack
+#    image: redis:latest
+#    restart: unless-stopped
+#    env_file:
+#      - backend/src/redis.env
+#    healthcheck:
+#      test: [ "CMD", "redis-cli", "--raw", "incr", "ping"]
+#      interval: 10s
+#      timeout: 3s
+#      retries: 2
+#    volumes:
+#      - ./volumes/redis.conf:/etc/redis/redis.conf
+#      - ./volumes/redis:/var/lib/redis/data
+#    ports:
+#      - 6300:6379
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:27017
+  backend:
+    container_name: backend_app
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+    build:
+      context: backend/src
+      dockerfile: Dockerfile
+

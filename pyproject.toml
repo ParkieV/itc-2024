@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "hackatontemplate"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+attrs = "^24.2.0"
+multipledispatch = "^1.0.0"
+motor = "^3.5.1"
+tornado = "^6.4.1"
+
+[tool.poetry.group.backend.dependencies]
+alembic = "^1.13.2"
+pydantic = {extras = ["email-validator"], version = "^2.8.2"}
+fastapi = "^0.112.2"
+asyncpg = "^0.29.0"
+sqlalchemy = "^2.0.33"
+webauthn = "^2.2.0"
+uvicorn = "^0.30.6"
+pydantic-settings = "^2.4.0"
+pyjwt = "^2.9.0"
+
+
+[tool.poetry.group.codehelpers.dependencies]
+mypy = "^1.11.2"
+ruff = "^0.6.3"
+black = "^24.8.0"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
