@@ -26,6 +26,6 @@ FROM base_with_req
 
 WORKDIR /src
 
-COPY . .
+COPY backend/ .
 
-CMD ["python", "-m", "backend.src.main"]
+CMD ["python", "-m", "src.main"]
