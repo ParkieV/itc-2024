@@ -37,5 +37,4 @@ class RoadCRUD:
         while docs:
             lt_geos.append(docs[0])
             docs = await cursor.to_list(1)
-        print(lt_geos)
         return [out_schema.model_validate(doc) for doc in lt_geos]
