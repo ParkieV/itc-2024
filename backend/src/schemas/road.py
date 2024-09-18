@@ -22,3 +22,7 @@ class AddRoadRequest(BaseModel):
     earthen_canvas_width: dict = Field(alias='earthen-canvas-width')
     type_of_coatings: dict = Field(alias='type-of-coatings')
     geodata: list[dict] = Field(alias='geodata')
+
+class GetGeometriesResponse(BaseModel):
+    common_info: dict = Field(serialization_alias='common-data')
+    geodata: list[dict]
