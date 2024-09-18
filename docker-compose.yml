@@ -17,6 +17,7 @@ services:
 #      - 6300:6379
   mongo:
     image: mongo
+    container_name: mongo_db
     restart: unless-stopped
     env_file:
       - .env
@@ -37,4 +38,12 @@ services:
     build:
       context: .
       dockerfile: backend/src/Dockerfile
+  ml:
+    container_name: ml_app
+    restart: unless-stopped
+    ports:
+      - 8001:8001
+    build:
+      context: ml
+      dockerfile: Dockerfile
 

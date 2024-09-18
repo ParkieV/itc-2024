@@ -11,7 +11,7 @@ FROM base AS base_with_req
 
 ENV POETRY_VIRTUALENVS_CREATE=false
 
-COPY pyproject.toml .
+COPY backend/pyproject.toml .
 
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
     export PATH="/root/.local/bin:$PATH" && \
