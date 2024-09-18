@@ -54,5 +54,6 @@ class GetRoadResponse(BaseModel):
 
 
 class GetGeometriesResponse(BaseModel):
+    id: str = Field(validation_alias='id')
     common_info: dict = Field(serialization_alias='common-data')
     geodata: list[dict]

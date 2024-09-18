@@ -1,6 +1,5 @@
 from collections.abc import Sequence
 
-from bson import ObjectId
 from fastapi import APIRouter
 
 from src.repositories.cruds.road_crud import RoadCRUD
