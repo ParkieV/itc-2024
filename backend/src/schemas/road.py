@@ -21,4 +21,4 @@ class AddRoadRequest(BaseModel):
     roadway_width: dict = Field(alias='roadway-width')
     earthen_canvas_width: dict = Field(alias='earthen-canvas-width')
     type_of_coatings: dict = Field(alias='type-of-coatings')
-    geodata: list = Field(alias='geodata')
+    geodata: list[dict] = Field(alias='geodata')
