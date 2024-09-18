@@ -1,17 +1,16 @@
 from collections.abc import Sequence
 from pprint import pprint
+from typing import TypeVar
 
 from attrs import define
-from bson import ObjectId
 from fastapi import HTTPException
 from motor.motor_asyncio import AsyncIOMotorCollection
 from pydantic import BaseModel
 
-from typing_extensions import TypeVar
 
 
-_MongoCollectionT = TypeVar("T", bound=AsyncIOMotorCollection)
 
+_MongoCollectionT = TypeVar("_MongoCollectionT", bound=AsyncIOMotorCollection)
 
 @define(repr=False, kw_only=True)
 class RoadCRUD:
@@ -19,18 +18,18 @@ class RoadCRUD:
     _out_schema = TypeVar("_out_schema", bound=BaseModel)
     collection: _MongoCollectionT
 
-    async def add_object(self, document: BaseModel) -> None:
+    async def add_road(self, road: BaseModel) -> None:
         try:
-            await self.collection.insert_one(document.model_dump())
+            await self.collection.insert_one(road.model_dump())
         except Exception as e:
             pprint(e)
             raise HTTPException(400, "Не получилось добавить объект")
 
-    async def add_objects(self, documents: Sequence[BaseModel]) -> None:
+    async def add_roads(self, documents: Sequence[BaseModel]) -> None:
         for document in documents:
-            await self.add_object(document)
+            await self.add_road(document)
 
-    async def get_geometries(self, *, out_schema: _out_schema) -> Sequence[_out_schema]:
+    async def get_road_geometries(self, *, out_schema: _out_schema) -> Sequence[_out_schema]:
         cursor = self.collection.find()
         docs = await cursor.to_list(1)
         lt_geos = []
@@ -39,7 +38,7 @@ class RoadCRUD:
             docs = await cursor.to_list(1)
         return [out_schema.model_validate(doc) for doc in lt_geos]
 
-    async def get_object_by_id(self, id: ObjectId, out_schema: _out_schema) -> _out_schema:
+    async def get_road_by_id(self, id: str, out_schema: _out_schema) -> _out_schema:
         try:
             doc = await self.collection.find_one({'id': id})
 
@@ -47,3 +46,4 @@ class RoadCRUD:
         except Exception as e:
             pprint(e)
             raise HTTPException(400, "Не получилось взять объект из БД")
+

@@ -3,6 +3,7 @@ from collections.abc import Sequence
 from typing import Generic
 
 from attrs import define
+from motor.motor_asyncio import AsyncIOMotorCollection
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
