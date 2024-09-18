@@ -1,10 +1,11 @@
 from collections.abc import Sequence
 
+from bson import ObjectId
 from fastapi import APIRouter
 
 from src.repositories.cruds.road_crud import RoadCRUD
 from src.repositories.mongo_context import MongoDatabaseContext
-from src.schemas.road import AddRoadRequest, GetGeometriesResponse
+from src.schemas.road import AddRoadRequest, GetGeometriesResponse, GetRoadResponse
 
 router = APIRouter()
 
@@ -24,3 +25,9 @@ async def get_geometries() -> Sequence[GetGeometriesResponse]:
     db_context = MongoDatabaseContext[RoadCRUD]()
     db_context.crud = RoadCRUD(collection=db_context.db['roads'])
     return await db_context.crud.get_geometries(out_schema=GetGeometriesResponse)
+
+@router.get('/road')
+async def get_road(id: str):
+    db_context = MongoDatabaseContext[RoadCRUD]()
+    db_context.crud = RoadCRUD(collection=db_context.db['roads'])
+    return await db_context.crud.get_object_by_id(id, out_schema=GetRoadResponse)

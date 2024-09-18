@@ -38,3 +38,12 @@ class RoadCRUD:
             lt_geos.append(docs[0])
             docs = await cursor.to_list(1)
         return [out_schema.model_validate(doc) for doc in lt_geos]
+
+    async def get_object_by_id(self, id: ObjectId, out_schema: _out_schema) -> _out_schema:
+        try:
+            doc = await self.collection.find_one({'id': id})
+
+            return out_schema.model_validate(doc)
+        except Exception as e:
+            pprint(e)
+            raise HTTPException(400, "Не получилось взять объект из БД")
