@@ -4,8 +4,17 @@ import pytesseract
 import os
 import base64
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+# Корректная настройка CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost","http://localhost:4200","http://localhost:9000","http://127.0.0.1:9000","https://localhost","https://localhost:4200","https://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["GET","POST","DELETE","PATCH","OPTIONS"],
+    allow_headers=["Access-Control-Allow-Origin","Authorization","User-Agent","Connection","Host","Content-Type","Accept","Accept-Encoding"],
+)
 @app.post("/get-prediction-for-potholes")
 def decide_road(id):
     '''
