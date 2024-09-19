@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 
 class StageResponse(BaseModel):
-    id: str | None = Field(default=uuid4())
+    id: str | None = Field(default=str(uuid4()))
     title: str
     description: str
     event_id: str

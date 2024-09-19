@@ -7,7 +7,7 @@ from src.schemas.stage import StageResponse
 
 
 class BaseEvent(BaseModel):
-    id: str | None = Field(default=uuid4())
+    id: str | None = Field(default=str(uuid4()))
     title: str
     road_chunk_id: str
     user_id: str
@@ -22,7 +22,7 @@ class GetEventResponse(BaseEvent):
     stages: list[StageResponse]
 
 class AddEventRequest(BaseModel):
-    id: str | None = Field(default=uuid4())
+    id: str | None = Field(default=str(uuid4()))
     title: str
     road_chunk_id: str | None
     user_id: str | None
