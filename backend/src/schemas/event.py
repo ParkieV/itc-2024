@@ -15,6 +15,7 @@ class BaseEvent(BaseModel):
     start_date: datetime
     plan_finish_date: datetime
     finish_date: datetime
+    properties: dict | None
 
 
 class GetEventResponse(BaseEvent):
