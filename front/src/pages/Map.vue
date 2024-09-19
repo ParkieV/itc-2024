@@ -188,7 +188,6 @@ onMounted(() => {
   );
 
   map.value.on('click', (event) => {
-    debugger;
     if (map.value) {
       if (isStartingEvent.value) {
         const finalPosition = movingEventFeature.value
@@ -208,7 +207,6 @@ onMounted(() => {
             return feature;
           }
         );
-        debugger;
         if (feature) {
           if (feature.get('type') === 'event') {
             // event.value = feature.get('id');
