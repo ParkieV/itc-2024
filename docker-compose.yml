@@ -46,4 +46,11 @@ services:
     build:
       context: ml
       dockerfile: Dockerfile
-
+  front:
+    container_name: front_app
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+    build:
+      context: front
+      dockerfile: Dockerfile
