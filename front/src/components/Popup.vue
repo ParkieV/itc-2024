@@ -72,7 +72,7 @@ watch(isPopupShowed, () => {
     } else if (feature.get('type') == 'event') {
       object.value.name = feature.get('name');
 
-      object.value.owner = 'Ремонт)';
+      object.value.owner = '';
     }
   }
 });

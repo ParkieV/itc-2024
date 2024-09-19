@@ -9,24 +9,24 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Номер проекта',
+            code: 'project_number',
             type: 'text',
           },
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Дата утверждения',
+            code: 'approval_date',
             type: 'text',
           },
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Ответственный',
+            code: 'responsible_person',
             type: 'text',
           },
           {
-            name: 'Тест',
-            code: 'code',
-            type: 'text',
+            name: 'Документ плана',
+            code: 'plan_document',
+            type: 'attachment',
           },
         ],
       },
@@ -42,8 +42,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Номер тендера',
+            code: 'tender_number',
             type: 'text',
           },
         ],
@@ -55,8 +55,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Название подрядчика',
+            code: 'contractor_name',
             type: 'text',
           },
         ],
@@ -68,8 +68,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Номер контракта',
+            code: 'contract_number',
             type: 'text',
           },
         ],
@@ -86,8 +86,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Главный инженер проекта',
+            code: 'chief_engineer',
             type: 'text',
           },
         ],
@@ -99,9 +99,9 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
-            type: 'text',
+            name: 'Отчет по изысканиям',
+            code: 'survey_report',
+            type: 'attachment',
           },
         ],
       },
@@ -117,8 +117,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Подрядчик по расчистке',
+            code: 'clearing_contractor',
             type: 'text',
           },
         ],
@@ -130,8 +130,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Объем земляных работ',
+            code: 'earthwork_volume',
             type: 'text',
           },
         ],
@@ -143,21 +143,21 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
-            type: 'text',
+            name: 'Схема коммуникаций',
+            code: 'utility_layout',
+            type: 'attachment',
           },
         ],
       },
       {
-        title: 'Подстилающий слов',
+        title: 'Подстилающий слой',
         flags: {
           isPlanning: false,
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Материал подстилающего слоя',
+            code: 'subbase_material',
             type: 'text',
           },
         ],
@@ -169,8 +169,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Тип асфальтобетона',
+            code: 'asphalt_type',
             type: 'text',
           },
         ],
@@ -182,9 +182,9 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
-            type: 'text',
+            name: 'План благоустройства',
+            code: 'landscaping_plan',
+            type: 'attachment',
           },
         ],
       },
@@ -195,8 +195,8 @@ const stage1 = [
         },
         attributes: [
           {
-            name: 'Тест',
-            code: 'code',
+            name: 'Материал шумоизоляции',
+            code: 'noise_insulation_material',
             type: 'text',
           },
         ],
@@ -204,5 +204,4 @@ const stage1 = [
     ],
   },
 ];
-
 export { stage1 };

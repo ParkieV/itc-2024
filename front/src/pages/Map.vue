@@ -5,11 +5,11 @@
     <CreateRoadDialog :opened="!!roadFeature" @save="createRoad" />
     <CreateEventDialog
       :opened="placedEventFeatures.length === 2"
-      @save="createRoad"
+      @save="handleCreateEvent"
     />
     <UpdateEventDialog
       :opened="!!eventData"
-      :id="eventData"
+      :id="eventData?.getId()"
       @save="updateEvent"
     />
     <Chat :opened="showChat" @close="() => (showChat = false)" />
@@ -158,6 +158,7 @@ const getRoadsData = () => {
       feature.set('type', 'road');
       vectorSource.addFeature(feature);
     });
+    getEventsHandler();
   });
 };
 
@@ -174,18 +175,21 @@ const updateEvent = (data) => {
 onMounted(() => {
   getRoadsData();
   map.value = initMap('map', [vectorLayer, drawLayer, eventLayer]);
-  map.value.getLayers().push(
-    new VectorLayer({
-      source: new VectorSource({
-        features: [
-          createPoint(34.56, 53.2, 'Объект 1'),
-          createPoint(34.59, 53.19, 'Замена дорожного полотна'),
-          createPoint(34.56, 53.1, 'Расширение полосы'),
-          createPoint(34.68, 53.5, 'Ремонт повреждений'),
-        ],
-      }),
-    })
-  );
+  const event = createPoint(34.59, 53.19, 'Замена дорожного полотна');
+  event.setId('e51e25f7-0e6c-4792-bfbd-9c4d693eb4af');
+  eventSource.addFeature(event);
+  // map.value.getLayers().push(
+  //   new VectorLayer({
+  //     source: new VectorSource({
+  //       features: [
+  //         createPoint(34.56, 53.2, 'Объект 1'),
+  //         createPoint(34.59, 53.19, 'Замена дорожного полотна'),
+  //         createPoint(34.56, 53.1, 'Расширение полосы'),
+  //         createPoint(34.68, 53.5, 'Ремонт повреждений'),
+  //       ],
+  //     }),
+  //   })
+  // );
 
   map.value.on('click', (event) => {
     if (map.value) {
@@ -298,10 +302,73 @@ watch(isDrawing, () => {
   mapStore.toggleDrawing(isDrawing.value);
 });
 
-onMounted(async () => {
-  const data = await getEventsInfo();
-  console.log(data);
-});
+const getEventsHandler = () => {
+  // getEvents().then((res) => {
+  // res.forEach((object) => {
+  //   function closestPointOnLine(multiLineString, point) {
+  //     console.log(multiLineString);
+  //     return multiLineString.getClosestPoint(point);
+  //   }
+  //   if (vectorSource.getFeatures().length) {
+  //     console.log(object['road_chunk_id'], vectorSource.getFeatures());
+  //     const multiLineString = vectorSource.getFeatureById(
+  //       object['road_chunk_id']
+  //     );
+  //     const features = object.properties.boundaries;
+  //     proj4.defs(
+  //       'EPSG:32633',
+  //       '+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs'
+  //     );
+  //     register(proj4);
+  //     // Example UTM coordinates (easting, northing, elevation)
+  //     // Transform UTM to WGS84 (EPSG:4326)
+  //     const inflatedCoordinates1 = proj4(
+  //       'EPSG:32633',
+  //       'EPSG:4326',
+  //       features[0].flatCoordinates
+  //     );
+  //     const inflatedCoordinates2 = proj4(
+  //       'EPSG:32633',
+  //       'EPSG:4326',
+  //       features[1].flatCoordinates
+  //     );
+  //     const point1 = new Feature({
+  //       geometry: new Point(fromLonLat(inflatedCoordinates1)),
+  //     });
+  //     const point2 = new Feature({
+  //       geometry: new Point(fromLonLat(inflatedCoordinates2)),
+  //     });
+  //     const newCoords = [
+  //       (inflatedCoordinates1[0] + inflatedCoordinates2[0]) / 2,
+  //       (inflatedCoordinates1[1] + inflatedCoordinates2[1]) / 2,
+  //     ];
+  //     console.log(fromLonLat(inflatedCoordinates1));
+  //     // Create a new point feature at the midpoint
+  //     const midpointFeature = new Feature(new Point(newCoords));
+  //     midpointFeature.set('type', 'event');
+  //     midpointFeature.setId(res.id);
+  //     eventSource.addFeature(midpointFeature);
+  //     point1.setStyle(boundaryStyle);
+  //     point1.set('type', 'event-boundary');
+  //     eventSource.addFeature(point1);
+  //     point2.setStyle(boundaryStyle);
+  //     point2.set('type', 'event-boundary');
+  //     eventSource.addFeature(point2);
+  //     console.log(eventSource.getFeatures());
+  //   }
+  // });
+  // });
+};
+
+const handleCreateEvent = (object) => {
+  createEvent(
+    mapStore.selectedObject.getId(),
+    object,
+    placedEventFeatures.value.map((feature) => feature.getGeometry())
+  );
+  placedEventFeatures.value = [];
+  mapStore.endEvent();
+};
 </script>
 
 <style lang="scss" scoped>
