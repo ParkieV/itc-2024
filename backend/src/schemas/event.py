@@ -30,4 +30,4 @@ class AddEventRequest(BaseModel):
     start_date: datetime
     plan_finish_date: datetime
     finish_date: datetime
-    properties: dict | None
+    properties: list | dict | None
