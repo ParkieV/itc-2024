@@ -1,8 +1,8 @@
 <template>
-  <q-dialog v-model="isOpened">
+  <q-dialog v-model="opened">
     <q-card>
       <q-card-section>
-        <div class="text-h6">Создание объекта реконструкции</div>
+        <div class="text-h6">Изменение объекта реконструкции</div>
       </q-card-section>
       <q-card-section class="q-pt-none">
         <div class="q-pa-md q-pl-none row q-gutter-md">
@@ -91,13 +91,14 @@
   </q-dialog>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
 
 const props = defineProps<{
   opened: boolean;
+  id: any;
 }>();
 
-const isOpened = ref(props.opened);
+const { opened, id } = toRefs(props);
 
 const emits = defineEmits(['save']);
 
