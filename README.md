@@ -51,7 +51,8 @@ TODO: написать
 
 ## Команда проекта
 TODO: Дописать про себя что сделали
-[Плужников Артем][https://github.com/TheTom205] - ML-engineer, разработка чат-бота
+
+[Плужников Артем](https://github.com/TheTom205) - ML-engineer, разработка чат-бота
 
 [Душенев Даниил][https://github.com/daniil-dushenev] - DS, декомпозиция задач
 
