@@ -58,7 +58,7 @@ TODO: Дописать про себя что сделали
 
 [Соловьев Вадим](https://github.com/vdmkkk) - Frontend, ...
 
-[Рябцев Никита](https://github.com/nick-bkwp) - Frontend, ...
+[Рябцев Никита](https://github.com/nick-bkwp) - Frontend, Фронтенд, Дизайн, Аналитика
 
 [Пискунов Степан](https://github.com/ParkieV) - Backend, разработка серверной части приложение, развертывание решения
 
