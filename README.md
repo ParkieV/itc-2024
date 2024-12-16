@@ -51,17 +51,17 @@ TODO: написать
 
 ## Команда проекта
 TODO: Дописать про себя что сделали
-![Плужников Артем|https://github.com/TheTom205] - ML-engineer, разработка чат-бота
+![Плужников Артем][https://github.com/TheTom205] - ML-engineer, разработка чат-бота
 
-![Душенев Даниил|https://github.com/daniil-dushenev] - DS, декомпозиция задач
+![Душенев Даниил][https://github.com/daniil-dushenev] - DS, декомпозиция задач
 
-![Соловьев Вадим|https://github.com/vdmkkk] - Frontend, ...
+![Соловьев Вадим][https://github.com/vdmkkk] - Frontend, ...
 
-![Рябцев Никита|https://github.com/nick-bkwp] - Frontend, ...
+![Рябцев Никита][https://github.com/nick-bkwp] - Frontend, ...
 
-![Пискунов Степан|https://github.com/ParkieV] - Backend, разработка серверной части приложение, развертывание решения
+![Пискунов Степан][https://github.com/ParkieV] - Backend, разработка серверной части приложение, развертывание решения
 
-![Горин Александр|https://github.com/AlexxxGorin] - ML-engineer, разработка модели детекции ям на дорогах
+![Горин Александр][https://github.com/AlexxxGorin] - ML-engineer, разработка модели детекции ям на дорогах
 
 ## Структура проекта
 TODO: написать
