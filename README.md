@@ -56,8 +56,6 @@ AUTH_REFRESH_TOKEN_EXPIRED_DAYS=30
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
 ## Команда проекта
-TODO: Дописать про себя что сделали
-
 [Плужников Артем](https://github.com/TheTom205) - ML-engineer, разработка чат-бота
 
 [Душенев Даниил](https://github.com/daniil-dushenev) - DS, декомпозиция задач
