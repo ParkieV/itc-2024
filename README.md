@@ -4,35 +4,64 @@
 также предоставлена аналитика эффективности работы, прогнозирование задержек.
 
 ## Установка и запуск проекта
-TODO: написать
+### Конфигурационный файл проекта
+Ниже приведены необходимые настройки для запуска проекта. В проекте уже есть .env, но **настоятельно** рекомендуется поменять секретные ключи и другие настройки в целях безопасности.
+```
+#Database
+DB_DRIVER="mongodb"
+DB_USER_NAME = "adminzzzzs"
+DB_PASSWORD = "secretz"
+DB_HOST = mongo
+DB_PORT =
+DB_NAME = "local_db"
+
+# Backend
+BACKEND_HOST = "0.0.0.0"
+BACKEND_PORT = 8000
+BACKEND_ALLOW_ORIGINS = ["http://localhost","http://localhost:4200","http://localhost:9000","http://127.0.0.1:9000","https://localhost","https://localhost:4200","https://localhost:3000"]
+BACKEND_ALLOW_CREDENTIALS = True
+BACKEND_ALLOW_METHODS = ["GET","POST","DELETE","PATCH","OPTIONS"]
+BACKEND_ALLOW_HEADERS = ["Access-Control-Allow-Origin","Authorization","User-Agent","Connection","Host","Content-Type","Accept","Accept-Encoding"]
+BACKEND_PUBLIC_URL = "http://localhost:8000"
+
+#Auth
+AUTH_SECRET_KEY=
+AUTH_ALGORITHM="HS256"
+AUTH_ACCESS_TOKEN_EXPIRED_MINUTES=30
+AUTH_REFRESH_TOKEN_EXPIRED_DAYS=30
+
+```
+### Инструкция к запуску
+Необходимо в консоли перейти в корневой каталог проекта и запустить команду `docker compose up -d`
 
 ## Основной функционал проекта
 TODO: написать
 
 ## Технологии и инструменты
-TODO: дописать, если нужно. Можно взять отсюда https://github.com/Ileriayo/markdown-badges?tab=readme-ov-file#-languages
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![FastAPI](https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Команда проекта
 TODO: Дописать про себя что сделали
-![Плужников Артем](https://github.com/TheTom205) - ML-engineer, разработка чат-бота
+![Плужников Артем|https://github.com/TheTom205] - ML-engineer, разработка чат-бота
 
-![Душенев Даниил](https://github.com/daniil-dushenev) - DS, декомпозиция задач
+![Душенев Даниил|https://github.com/daniil-dushenev] - DS, декомпозиция задач
 
-![Соловьев Вадим](https://github.com/vdmkkk) - Frontend, ...
+![Соловьев Вадим|https://github.com/vdmkkk] - Frontend, ...
 
-![Рябцев Никита](https://github.com/nick-bkwp) - Frontend, ...
+![Рябцев Никита|https://github.com/nick-bkwp] - Frontend, ...
 
-![Пискунов Степан](https://github.com/ParkieV) - Backend, ...
+![Пискунов Степан|https://github.com/ParkieV] - Backend, разработка серверной части приложение, развертывание решения
 
-![Горин Александр](https://github.com/AlexxxGorin) - ML-engineer, разработка модели детекции ям на дорогах
+![Горин Александр|https://github.com/AlexxxGorin] - ML-engineer, разработка модели детекции ям на дорогах
 
 ## Структура проекта
 TODO: написать
